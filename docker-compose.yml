@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: appsmith
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-appsmith_local}
+      POSTGRES_DB: appsmith
+    ports:
+      - "127.0.0.1:54329:5432"
+    volumes:
+      - appsmith_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U appsmith"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+volumes:
+  appsmith_data:
