@@ -15,6 +15,7 @@ jobs:
           --health-cmd "pg_isready -U appsmith" --health-interval 3s --health-timeout 3s --health-retries 10
     env:
       DATABASE_URL: postgresql://appsmith:appsmith_local@127.0.0.1:54329/appsmith?schema=public
+      DIRECT_URL: postgresql://appsmith:appsmith_local@127.0.0.1:54329/appsmith?schema=public
       APP_ORIGIN: http://127.0.0.1:3000
     steps:
       - uses: actions/checkout@v4

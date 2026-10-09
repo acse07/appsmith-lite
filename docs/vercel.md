@@ -4,7 +4,7 @@
 
 1. Создайте отдельную PostgreSQL-базу для демо, например в Neon или Supabase. Для serverless используйте строку подключения с пулом соединений, которую выдаёт провайдер.
 2. В Vercel импортируйте репозиторий `acse07/appsmith-lite`. Framework — Next.js, корневая папка — корень репозитория, Node.js — 24.x.
-3. Добавьте `DATABASE_URL` в Environment Variables для **Production**: полную PostgreSQL-строку подключения с параметрами провайдера и SSL.
+3. Добавьте `DATABASE_URL` и `DIRECT_URL` в Environment Variables для **Production** как секреты: `DATABASE_URL` — подключение через pooler для приложения, `DIRECT_URL` — прямое подключение для миграций. Используйте параметры провайдера и SSL.
 4. Добавьте `APP_ORIGIN` для **Production**: основной HTTPS-домен приложения без завершающего `/`. Его можно задать после первого деплоя и выполнить Redeploy.
 5. Запустите Deploy. `vercel.json` задаёт сборку: генерация Prisma Client, применение сохранённых миграций и сборка Next.js.
 6. В настройках Deployment Protection разрешите публичный доступ к production-демо. Затем проверьте сайт в приватном окне браузера.
