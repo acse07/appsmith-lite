@@ -149,6 +149,8 @@ docs/           ТЗ, архитектура, скриншоты и демо
 
 ## Production и Docker
 
+Для публикации демо на Vercel используйте [инструкцию по деплою](docs/vercel.md). Конфигурация сборки уже есть в `vercel.json`; нужна облачная PostgreSQL-база и переменные окружения.
+
 Задайте собственную PostgreSQL-базу и `APP_ORIGIN` с точным HTTPS-адресом. Нужен TLS reverse proxy: production cookies требуют HTTPS. Локальные значения из `.env.example` предназначены для разработки.
 
 ```sh
